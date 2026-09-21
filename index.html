@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="José Sayra Zeballos">
+    <meta name="description" content="TechCart, proyecto educativo de HTML y CSS.">
+    <title>TechCart - Tienda de tecnología</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>TechCart</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#compra">Comprar</a></li>
+                <li><a href="#preguntas">Preguntas frecuentes</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="catalogo">
+            <h2>Catálogo de productos</h2>
+
+            <article class="destacado">
+                <figure>
+                    <img src="img/laptop.svg" alt="Laptop NovaBook Pro abierta y encendida" width="640" height="420">
+                    <figcaption>Equipo destacado de TechCart</figcaption>
+                </figure>
+                <h3 class="titulo">Laptop NovaBook Pro 14</h3>
+                <p><strong>S/ 3,499.00</strong></p>
+                <table class="tabla-producto">
+                    <caption>Especificaciones de la laptop</caption>
+                    <thead><tr><th>Característica</th><th>Especificación</th></tr></thead>
+                    <tbody>
+                        <tr><td>Procesador</td><td>Intel Core Ultra 5</td></tr>
+                        <tr><td>Memoria</td><td>16 GB LPDDR5</td></tr>
+                        <tr><td>Almacenamiento</td><td>512 GB SSD NVMe</td></tr>
+                        <tr><td>Pantalla</td><td>14 pulgadas IPS</td></tr>
+                    </tbody>
+                </table>
+                <button type="button">Agregar al carrito</button>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="img/monitor.svg" alt="Monitor VisionView de 27 pulgadas sobre su base" width="640" height="420">
+                    <figcaption>Pantalla para estudio y trabajo</figcaption>
+                </figure>
+                <h3 class="titulo">Monitor VisionView 27</h3>
+                <p><strong>S/ 1,099.00</strong></p>
+                <table class="tabla-producto">
+                    <caption>Especificaciones del monitor</caption>
+                    <thead><tr><th>Característica</th><th>Especificación</th></tr></thead>
+                    <tbody>
+                        <tr><td>Panel</td><td>IPS QHD</td></tr>
+                        <tr><td>Resolución</td><td>2560 × 1440</td></tr>
+                        <tr><td>Frecuencia</td><td>100 Hz</td></tr>
+                        <tr><td>Conexiones</td><td>USB-C y HDMI</td></tr>
+                    </tbody>
+                </table>
+                <button type="button">Agregar al carrito</button>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="img/teclado.svg" alt="Teclado mecánico compacto KeyForge K75" width="640" height="420">
+                    <figcaption>Teclado mecánico compacto</figcaption>
+                </figure>
+                <h3 class="titulo">Teclado KeyForge K75</h3>
+                <p><strong>S/ 289.00</strong></p>
+                <table class="tabla-producto">
+                    <caption>Especificaciones del teclado</caption>
+                    <thead><tr><th>Característica</th><th>Especificación</th></tr></thead>
+                    <tbody>
+                        <tr><td>Formato</td><td>75 %</td></tr>
+                        <tr><td>Switches</td><td>Mecánicos táctiles</td></tr>
+                        <tr><td>Conexión</td><td>USB-C y Bluetooth</td></tr>
+                        <tr><td>Iluminación</td><td>Blanca regulable</td></tr>
+                    </tbody>
+                </table>
+                <button type="button">Agregar al carrito</button>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="img/mouse.svg" alt="Mouse ergonómico inalámbrico Orbit M2" width="640" height="420">
+                    <figcaption>Mouse para jornadas prolongadas</figcaption>
+                </figure>
+                <h3 class="titulo">Mouse Orbit M2</h3>
+                <p><strong>S/ 179.00</strong></p>
+                <table class="tabla-producto">
+                    <caption>Especificaciones del mouse</caption>
+                    <thead><tr><th>Característica</th><th>Especificación</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sensor</td><td>8,000 DPI</td></tr>
+                        <tr><td>Botones</td><td>6 programables</td></tr>
+                        <tr><td>Conexión</td><td>Bluetooth y USB</td></tr>
+                        <tr><td>Autonomía</td><td>70 horas</td></tr>
+                    </tbody>
+                </table>
+                <button type="button">Agregar al carrito</button>
+            </article>
+
+            <article>
+                <figure>
+                    <img src="img/audifonos.svg" alt="Audífonos inalámbricos SonicFlow X de color violeta" width="640" height="420">
+                    <figcaption>Audio para estudiar y trabajar</figcaption>
+                </figure>
+                <h3 class="titulo">Audífonos SonicFlow X</h3>
+                <p><strong>S/ 349.00</strong></p>
+                <table class="tabla-producto">
+                    <caption>Especificaciones de los audífonos</caption>
+                    <thead><tr><th>Característica</th><th>Especificación</th></tr></thead>
+                    <tbody>
+                        <tr><td>Audio</td><td>Alta resolución</td></tr>
+                        <tr><td>Micrófono</td><td>Dual integrado</td></tr>
+                        <tr><td>Conexión</td><td>Bluetooth 5.3</td></tr>
+                        <tr><td>Autonomía</td><td>35 horas</td></tr>
+                    </tbody>
+                </table>
+                <button type="button">Agregar al carrito</button>
+            </article>
+        </section>
+
+        <aside>
+            <h2>Información de la compra</h2>
+            <h3>Cómo comprar en tres pasos</h3>
+            <ol>
+                <li>Elige un producto del catálogo.</li>
+                <li>Agrégalo al carrito.</li>
+                <li>Completa tus datos y confirma el pedido.</li>
+            </ol>
+            <h3>Cómo solicitar una devolución</h3>
+            <ol>
+                <li>Conserva el producto y su empaque original.</li>
+                <li>Ten a la mano tu comprobante o número de pedido.</li>
+                <li>Comunícate con atención al cliente.</li>
+                <li>Entrega el producto para su evaluación.</li>
+            </ol>
+            <h3>Costos de envío</h3>
+            <table class="tabla-envio">
+                <caption>Tarifas referenciales según destino</caption>
+                <thead><tr><th>Zona</th><th>Tiempo</th><th>Costo</th></tr></thead>
+                <tbody>
+                    <tr><td>Lima</td><td>24 horas</td><td>Gratis</td></tr>
+                    <tr><td>Resto del Perú</td><td>3 a 5 días</td><td>S/ 18.00</td></tr>
+                    <tr><td>Internacional</td><td>7 a 15 días</td><td>S/ 110.00</td></tr>
+                </tbody>
+            </table>
+        </aside>
+
+        <section id="compra">
+            <h2>Finalizar compra</h2>
+            <form action="index.html" method="get">
+                <fieldset>
+                    <legend>Datos de envío</legend>
+                    <p><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" required minlength="3" autocomplete="name"></p>
+                    <p><label for="correo">Correo electrónico</label><input type="email" id="correo" name="correo" required autocomplete="email"></p>
+                    <p><label for="direccion">Dirección</label><input type="text" id="direccion" name="direccion" required minlength="5" autocomplete="address-line1"></p>
+                    <p><label for="ciudad">Ciudad</label><input type="text" id="ciudad" name="ciudad" list="ciudades" required><datalist id="ciudades"><option value="Lima"><option value="Arequipa"><option value="Cusco"><option value="Trujillo"></datalist></p>
+                    <p>
+                        <label for="pais">País</label>
+                        <select id="pais" name="pais" required>
+                            <option value="">- Elige un país -</option>
+                            <optgroup label="Sudamérica"><option value="pe">Perú</option><option value="cl">Chile</option><option value="co">Colombia</option></optgroup>
+                            <optgroup label="Norteamérica"><option value="mx">México</option><option value="us">Estados Unidos</option></optgroup>
+                            <optgroup label="Europa"><option value="es">España</option><option value="fr">Francia</option></optgroup>
+                        </select>
+                    </p>
+                    <p><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" pattern="[0-9]{7,}" title="Solo números, mínimo siete dígitos" autocomplete="tel"></p>
+                    <p><label for="fecha">Fecha de entrega</label><input type="date" id="fecha" name="fecha"></p>
+                    <p><label for="cantidad">Cantidad</label><input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1" required></p>
+                    <p><label for="notas">Notas para el repartidor (opcional)</label><textarea id="notas" name="notas" rows="5" maxlength="200"></textarea></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Método de pago</legend>
+                    <p><input type="radio" id="tarjeta" name="pago" value="tarjeta" required><label for="tarjeta">Tarjeta</label></p>
+                    <p><input type="radio" id="transferencia" name="pago" value="transferencia"><label for="transferencia">Transferencia</label></p>
+                    <p><input type="radio" id="contraentrega" name="pago" value="contraentrega"><label for="contraentrega">Contra entrega</label></p>
+                </fieldset>
+                <fieldset>
+                    <legend>Facturación (opcional)</legend>
+                    <p><label for="empresa">Empresa (opcional)</label><input type="text" id="empresa" name="empresa" autocomplete="organization"></p>
+                    <p><label for="ruc">RUC</label><input type="text" id="ruc" name="ruc" pattern="[0-9]{11}" maxlength="11" inputmode="numeric" title="El RUC debe tener exactamente 11 dígitos"></p>
+                </fieldset>
+                <p><input type="checkbox" id="terminos" name="terminos" required><label for="terminos">Acepto los términos y condiciones</label></p>
+                <button type="submit">Confirmar pedido</button>
+            </form>
+        </section>
+
+        <section id="preguntas">
+            <h2>Preguntas frecuentes</h2>
+            <details><summary>¿Cuánto demora el envío?</summary><p>En Lima aproximadamente 24 horas y en otras ciudades entre 3 y 5 días.</p></details>
+            <details><summary>¿Qué métodos de pago aceptan?</summary><p>Aceptamos tarjeta, transferencia y pago contra entrega.</p></details>
+            <details><summary>¿Los productos tienen garantía?</summary><p>Sí, todos incluyen garantía según las condiciones del fabricante.</p></details>
+            <details><summary>¿Puedo solicitar una devolución?</summary><p>Sí, siguiendo los pasos indicados en la sección de información de compra.</p></details>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 TechCart - Proyecto educativo de José Sayra Zeballos</p>
+        <address>Contacto: <a href="mailto:hola@techcart.pe">hola@techcart.pe</a></address>
+    </footer>
+</body>
+</html>
