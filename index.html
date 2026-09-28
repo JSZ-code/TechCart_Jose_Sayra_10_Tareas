@@ -1,140 +1,189 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="José Sayra Zeballos">
-    <meta name="description" content="TechCart responsive, mobile first, modo oscuro y animaciones.">
-    <title>TechCart - Clase 5</title>
+    <meta name="description" content="TechCart con Tailwind CSS v4, componentes, tema y modo oscuro manual.">
+    <title>TechCart - Clase 6</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+        @theme {
+            --color-fondo: #f5f5f7;
+            --color-superficie: #ffffff;
+            --color-texto: #1d1d1f;
+            --color-suave: #6e6e73;
+            --color-marca: #7c3aed;
+            --color-marca-fuerte: #5b21b6;
+            --color-marca-suave: #ede9fe;
+            --color-borde: #d8d8df;
+            --color-oferta: #e11d48;
+            --radius-tarjeta: 0.875rem;
+            --animate-aparecer: aparecer .5s ease-out backwards;
+        }
+
+        html[data-theme="dark"] {
+            --color-fondo: #111114;
+            --color-superficie: #1d1d1f;
+            --color-texto: #f5f5f7;
+            --color-suave: #b8b8bf;
+            --color-marca: #a78bfa;
+            --color-marca-fuerte: #c4b5fd;
+            --color-marca-suave: #2e2545;
+            --color-borde: #3a3a40;
+            --color-oferta: #fb7185;
+        }
+
+        @layer components {
+            .tarjeta {
+                @apply bg-superficie border border-borde rounded-tarjeta p-4;
+            }
+
+            .boton {
+                @apply inline-flex items-center justify-center rounded-full bg-marca px-4 py-2 font-bold text-white hover:bg-marca-fuerte focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-marca;
+            }
+
+            .campo {
+                @apply w-full rounded-lg border border-borde bg-superficie px-3 py-2 text-texto focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-marca;
+            }
+
+            .titulo-seccion {
+                @apply text-xl font-bold tracking-tight text-texto md:text-2xl;
+            }
+
+            .celda {
+                @apply border-b border-borde px-3 py-2 text-sm;
+            }
+        }
+    </style>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body>
-    <header>
-        <h1>TechCart</h1>
-        <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#beneficios">Beneficios</a></li>
-                <li><a href="#compra">Comprar</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
+<body class="min-h-dvh bg-fondo text-texto">
+    <header class="area-cabecera sticky top-0 z-30 flex flex-col gap-3 border-t-4 border-marca bg-superficie/95 px-4 py-4 backdrop-blur md:flex-row md:items-center">
+        <h1 class="text-3xl font-bold text-marca">TechCart</h1>
+        <nav class="md:ml-auto" aria-label="Navegación principal">
+            <ul class="flex flex-wrap items-center gap-2">
+                <li><a class="rounded-full px-3 py-2 font-semibold hover:bg-marca-suave hover:text-marca-fuerte" href="#catalogo">Catálogo</a></li>
+                <li><a class="rounded-full px-3 py-2 font-semibold hover:bg-marca-suave hover:text-marca-fuerte" href="#beneficios">Beneficios</a></li>
+                <li><a class="rounded-full px-3 py-2 font-semibold hover:bg-marca-suave hover:text-marca-fuerte" href="#compra">Comprar</a></li>
+                <li><a class="rounded-full px-3 py-2 font-semibold hover:bg-marca-suave hover:text-marca-fuerte" href="nosotros.html">Nosotros</a></li>
             </ul>
         </nav>
-        <button class="carrito" type="button"><span>Comprar</span><span class="contador">5</span></button>
+        <button class="boton gap-2 self-start md:self-auto" type="button"><span>Comprar</span><span class="grid h-[22px] w-[22px] place-items-center rounded-full bg-white text-xs text-marca-fuerte">4</span></button>
     </header>
 
-    <section class="promo">
-        <strong>Semana TechCart</strong>
-        <span>Envío gratis desde S/ 150 y soporte posventa incluido.</span>
+    <section class="area-promo mx-4 flex flex-wrap justify-center gap-3 rounded-tarjeta bg-indigo-900 px-4 py-3 text-white md:mx-5">
+        <strong>Semana TechCart</strong><span>Envío gratis desde S/ 150 y soporte posventa incluido.</span>
     </section>
 
-    <main>
-        <section id="catalogo">
-            <h2>Catálogo de productos</h2>
-            <nav class="categorias" aria-label="Categorías">
-                <ul>
-                    <li><a href="#catalogo">Laptops</a></li>
-                    <li><a href="#catalogo">Monitores</a></li>
-                    <li><a href="#catalogo">Periféricos</a></li>
-                    <li><a href="#catalogo">Audio</a></li>
+    <main class="area-contenido min-w-0 px-4 pb-4 md:px-5 lg:pr-0">
+        <section id="catalogo" class="mb-5 rounded-tarjeta border border-borde bg-superficie p-4 md:p-6">
+            <h2 class="titulo-seccion">Catálogo de productos</h2>
+            <nav class="my-4" aria-label="Categorías">
+                <ul class="flex flex-wrap justify-center gap-2">
+                    <li><a class="rounded-full border border-borde bg-marca-suave px-3 py-2 font-semibold" href="#catalogo">Laptops</a></li>
+                    <li><a class="rounded-full border border-borde bg-marca-suave px-3 py-2 font-semibold" href="#catalogo">Tablets</a></li>
+                    <li><a class="rounded-full border border-borde bg-marca-suave px-3 py-2 font-semibold" href="#catalogo">Monitores</a></li>
+                    <li><a class="rounded-full border border-borde bg-marca-suave px-3 py-2 font-semibold" href="#catalogo">Periféricos</a></li>
                 </ul>
             </nav>
-            <div class="productos">
-            <article class="destacado">
-                <figure>
-                    <img src="img/laptop.svg" alt="Laptop NovaBook Pro abierta y encendida" width="640" height="420">
-                </figure>
-                <h3>Laptop NovaBook Pro 14</h3>
-                <p class="precio">S/ 3,499.00</p>
-                <button type="button">Agregar al carrito</button>
-            </article>
-            <article class="amplia">
-                <figure>
-                    <img src="img/monitor.svg" alt="Monitor VisionView de 27 pulgadas sobre su base" width="640" height="420">
-                </figure>
-                <h3>Monitor VisionView 27</h3>
-                <p class="precio">S/ 1,099.00</p>
-                <button type="button">Agregar al carrito</button>
-            </article>
-            <article>
-                <figure>
-                    <img src="img/teclado.svg" alt="Teclado mecánico compacto KeyForge K75" width="640" height="420">
-                </figure>
-                <h3>Teclado KeyForge K75</h3>
-                <p class="precio">S/ 289.00</p>
-                <button type="button">Agregar al carrito</button>
-            </article>
-            <article>
-                <figure>
-                    <img src="img/mouse.svg" alt="Mouse ergonómico inalámbrico Orbit M2" width="640" height="420">
-                </figure>
-                <h3>Mouse Orbit M2</h3>
-                <p class="precio">S/ 179.00</p>
-                <button type="button">Agregar al carrito</button>
-            </article>
-            <article>
-                <figure>
-                    <img src="img/audifonos.svg" alt="Audífonos inalámbricos SonicFlow X" width="640" height="420">
-                </figure>
-                <h3>Audífonos SonicFlow X</h3>
-                <p class="precio">S/ 349.00</p>
-                <button type="button">Agregar al carrito</button>
-            </article>
+
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,13rem),1fr))] gap-4">
+                <article class="tarjeta group flex animate-aparecer flex-col motion-reduce:animate-none dark:ring-1 dark:ring-white/10">
+                    <figure class="overflow-hidden rounded-xl">
+                        <img class="w-full transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" src="img/laptop.svg" alt="Laptop NovaBook Pro abierta y encendida" width="640" height="420">
+                    </figure>
+                    <h3 class="mt-3 text-lg font-bold">Laptop NovaBook Pro 14</h3>
+                    <p class="font-bold text-marca-fuerte">S/ 3,499.00</p>
+                    <button class="boton mt-auto" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="tarjeta group relative flex animate-aparecer flex-col before:absolute before:right-3 before:top-3 before:rounded-full before:bg-oferta before:px-2 before:py-1 before:text-xs before:font-bold before:text-white before:content-['Oferta'] motion-reduce:animate-none dark:ring-1 dark:ring-white/10 [animation-delay:100ms]">
+                    <figure class="overflow-hidden rounded-xl">
+                        <img class="w-full transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" src="img/tablet.svg" alt="Tablet iPad Air sobre fondo violeta" width="640" height="420">
+                    </figure>
+                    <h3 class="mt-3 text-lg font-bold">iPad Air 11</h3>
+                    <p class="font-bold text-marca-fuerte">S/ 2,899.00</p>
+                    <button class="boton mt-auto" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="tarjeta group flex animate-aparecer flex-col motion-reduce:animate-none dark:ring-1 dark:ring-white/10 [animation-delay:200ms]">
+                    <figure class="overflow-hidden rounded-xl">
+                        <img class="w-full transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" src="img/monitor.svg" alt="Monitor VisionView de 27 pulgadas" width="640" height="420">
+                    </figure>
+                    <h3 class="mt-3 text-lg font-bold">Monitor VisionView 27</h3>
+                    <p class="font-bold text-marca-fuerte">S/ 1,099.00</p>
+                    <button class="boton mt-auto" type="button">Agregar al carrito</button>
+                </article>
+
+                <article class="tarjeta group flex animate-aparecer flex-col motion-reduce:animate-none dark:ring-1 dark:ring-white/10 [animation-delay:300ms]">
+                    <figure class="overflow-hidden rounded-xl">
+                        <img class="w-full transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none" src="img/teclado.svg" alt="Teclado mecánico compacto KeyForge K75" width="640" height="420">
+                    </figure>
+                    <h3 class="mt-3 text-lg font-bold">Teclado KeyForge K75</h3>
+                    <p class="font-bold text-marca-fuerte">S/ 289.00</p>
+                    <button class="boton mt-auto" type="button">Agregar al carrito</button>
+                </article>
             </div>
         </section>
 
-        <section id="beneficios">
-            <h2>Beneficios TechCart</h2>
-            <div class="beneficios">
-                <article><span aria-hidden="true">🚚</span><h3>Envío gratis</h3><p>En compras desde S/ 150 a todo el país.</p></article>
-                <article><span aria-hidden="true">🛡️</span><h3>Garantía real</h3><p>12 meses en todos los productos.</p></article>
-                <article><span aria-hidden="true">🔒</span><h3>Pago seguro</h3><p>Tarjeta, transferencia o contra entrega.</p></article>
-                <article><span aria-hidden="true">💬</span><h3>Soporte directo</h3><p>Acompañamiento antes y después de la compra.</p></article>
+        <section id="beneficios" class="mb-5 rounded-tarjeta border border-borde bg-superficie p-4 md:p-6">
+            <h2 class="titulo-seccion">Beneficios TechCart</h2>
+            <div class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(10.5rem,1fr))] gap-4">
+                <article class="tarjeta text-center"><span class="text-3xl" aria-hidden="true">🚚</span><h3 class="font-bold">Envío gratis</h3><p class="text-sm text-suave">Desde S/ 150 a todo el país.</p></article>
+                <article class="tarjeta text-center"><span class="text-3xl" aria-hidden="true">🛡️</span><h3 class="font-bold">Garantía real</h3><p class="text-sm text-suave">12 meses en todos los productos.</p></article>
+                <article class="tarjeta text-center"><span class="text-3xl" aria-hidden="true">🔒</span><h3 class="font-bold">Pago seguro</h3><p class="text-sm text-suave">Tarjeta, transferencia o contra entrega.</p></article>
+                <article class="tarjeta text-center"><span class="text-3xl" aria-hidden="true">💬</span><h3 class="font-bold">Soporte directo</h3><p class="text-sm text-suave">Acompañamiento antes y después de comprar.</p></article>
             </div>
         </section>
 
-        <section id="compra">
-            <h2>Finalizar compra</h2>
-            <form action="index.html" method="get">
-                <fieldset class="envio">
-                    <legend>Datos de envío</legend>
-                    <p class="campo-ancho"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" required></p>
-                    <p class="campo-ancho"><label for="direccion">Dirección</label><input type="text" id="direccion" name="direccion" required></p>
-                    <p><label for="ciudad">Ciudad</label><input type="text" id="ciudad" name="ciudad" required></p>
-                    <p><label for="pais">País</label><select id="pais" name="pais" required><option value="">Elige</option><option>Perú</option><option>Chile</option><option>Colombia</option></select></p>
-                    <p><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" pattern="[0-9]{7,}"></p>
-                    <p><label for="fecha">Fecha de entrega</label><input type="date" id="fecha" name="fecha"></p>
-                    <p class="campo-ancho"><label for="notas">Notas</label><textarea id="notas" name="notas" rows="4"></textarea></p>
+        <section id="compra" class="rounded-tarjeta border border-borde bg-superficie p-4 md:p-6">
+            <h2 class="titulo-seccion">Finalizar compra</h2>
+            <form class="mt-4 grid gap-4 md:grid-cols-[2fr_1fr]" action="index.html" method="get">
+                <fieldset class="grid gap-x-4 rounded-xl border border-borde p-4 md:row-span-2 md:grid-cols-2">
+                    <legend class="px-2 font-bold text-marca-fuerte">Datos de envío</legend>
+                    <p class="md:col-span-2"><label class="mb-1 block font-semibold" for="nombre">Nombre completo</label><input class="campo" type="text" id="nombre" name="nombre" required></p>
+                    <p><label class="mb-1 block font-semibold" for="ciudad">Ciudad</label><input class="campo" type="text" id="ciudad" name="ciudad" required></p>
+                    <p><label class="mb-1 block font-semibold" for="pais">País</label><select class="campo" id="pais" name="pais" required><option value="">Elige</option><option>Perú</option><option>Chile</option><option>Colombia</option></select></p>
+                    <p><label class="mb-1 block font-semibold" for="telefono">Teléfono</label><input class="campo" type="tel" id="telefono" name="telefono" pattern="[0-9]{7,}"></p>
+                    <p><label class="mb-1 block font-semibold" for="fecha">Fecha de entrega</label><input class="campo" type="date" id="fecha" name="fecha"></p>
+                    <p class="md:col-span-2"><label class="mb-1 block font-semibold" for="notas">Notas</label><textarea class="campo resize-y" id="notas" name="notas" rows="4"></textarea></p>
                 </fieldset>
-                <fieldset class="pago">
-                    <legend>Método de pago</legend>
-                    <p><input type="radio" id="tarjeta" name="pago" value="tarjeta" required><label for="tarjeta">Tarjeta</label></p>
-                    <p><input type="radio" id="transferencia" name="pago" value="transferencia"><label for="transferencia">Transferencia</label></p>
-                    <p><input type="radio" id="contraentrega" name="pago" value="contraentrega"><label for="contraentrega">Contra entrega</label></p>
+                <fieldset class="rounded-xl border border-borde p-4">
+                    <legend class="px-2 font-bold text-marca-fuerte">Método de pago</legend>
+                    <p class="py-1"><input class="mr-2 accent-marca" type="radio" id="tarjeta" name="pago" value="tarjeta" required><label for="tarjeta">Tarjeta</label></p>
+                    <p class="py-1"><input class="mr-2 accent-marca" type="radio" id="transferencia" name="pago" value="transferencia"><label for="transferencia">Transferencia</label></p>
+                    <p class="py-1"><input class="mr-2 accent-marca" type="radio" id="contraentrega" name="pago" value="contraentrega"><label for="contraentrega">Contra entrega</label></p>
                 </fieldset>
-                <p class="terminos"><input type="checkbox" id="terminos" name="terminos" required><label for="terminos">Acepto los términos y condiciones</label></p>
-                <button type="submit">Confirmar pedido</button>
+                <p class="self-start"><input class="mr-2 accent-marca" type="checkbox" id="terminos" name="terminos" required><label for="terminos">Acepto los términos y condiciones</label></p>
+                <button class="boton justify-self-start md:col-span-2" type="submit">Confirmar pedido</button>
             </form>
         </section>
     </main>
 
-    <aside>
-        <h2>Información de compra</h2>
-        <p>Compra segura, garantía y despacho nacional.</p>
-        <table class="tabla-envio">
-            <caption>Tarifas según destino</caption>
-            <thead><tr><th>Zona</th><th>Tiempo</th><th>Costo</th></tr></thead>
-            <tbody>
-                <tr><td>Lima</td><td>24 h</td><td>Gratis</td></tr>
-                <tr><td>Perú</td><td>3 a 5 días</td><td>S/ 18</td></tr>
-                <tr><td>Internacional</td><td>7 a 15 días</td><td>S/ 110</td></tr>
-            </tbody>
-        </table>
+    <aside class="area-lateral mx-4 self-start rounded-tarjeta border border-borde bg-superficie p-4 md:mx-5 lg:ml-0">
+        <h2 class="titulo-seccion">Información de compra</h2>
+        <p class="my-2 text-sm text-suave">Compra segura, garantía y despacho nacional.</p>
+        <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-left">
+                <thead>
+                    <tr><th class="celda bg-marca text-white">Zona</th><th class="celda bg-marca text-white">Tiempo</th><th class="celda bg-marca text-right text-white">Costo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="celda">Lima</td><td class="celda">24 h</td><td class="celda text-right">Gratis</td></tr>
+                    <tr><td class="celda">Perú</td><td class="celda">3 a 5 días</td><td class="celda text-right">S/ 18</td></tr>
+                    <tr><td class="celda">Internacional</td><td class="celda">7 a 15 días</td><td class="celda text-right">S/ 110</td></tr>
+                </tbody>
+            </table>
+        </div>
     </aside>
 
-    <footer>
-        <div><strong>TechCart</strong><p>Tecnología para estudiar y trabajar.</p></div>
-        <div><strong>Enlaces</strong><a href="#catalogo">Catálogo</a><a href="#compra">Comprar</a><a href="nosotros.html">Nosotros</a></div>
-        <div><strong>Contacto</strong><address><a href="mailto:hola@techcart.pe">hola@techcart.pe</a></address><p>Arequipa, Perú</p></div>
+    <footer class="area-pie grid gap-5 bg-slate-950 px-4 py-7 text-slate-100 md:grid-cols-3">
+        <div><strong>TechCart</strong><p class="text-sm text-slate-300">Tecnología para estudiar y trabajar.</p></div>
+        <div class="flex flex-col gap-1"><strong>Enlaces</strong><a class="text-violet-300" href="#catalogo">Catálogo</a><a class="text-violet-300" href="#compra">Comprar</a><a class="text-violet-300" href="nosotros.html">Nosotros</a></div>
+        <div><strong>Contacto</strong><address class="not-italic"><a class="text-violet-300" href="mailto:hola@techcart.pe">hola@techcart.pe</a></address><p class="text-sm text-slate-300">Arequipa, Perú</p></div>
     </footer>
 </body>
 </html>
