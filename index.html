@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="José Sayra Zeballos">
-    <meta name="description" content="TechCart, práctica de Flexbox y arranque de CSS Grid.">
-    <title>TechCart - Clase 3</title>
+    <meta name="description" content="TechCart, práctica completa de CSS Grid.">
+    <title>TechCart - Clase 4</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -21,6 +21,11 @@
         </nav>
         <button class="carrito" type="button"><span>Comprar</span><span class="contador">5</span></button>
     </header>
+
+    <section class="promo">
+        <strong>Semana TechCart</strong>
+        <span>Envío gratis desde S/ 150 y soporte posventa incluido.</span>
+    </section>
 
     <main>
         <section id="catalogo">
@@ -77,48 +82,26 @@
             </div>
         </section>
 
-        <aside>
-            <h2>Información de compra</h2>
-            <ol>
-                <li>Elige un producto.</li>
-                <li>Agrégalo al carrito.</li>
-                <li>Completa los datos de envío.</li>
-            </ol>
-            <table class="tabla-envio">
-                <caption>Tarifas según destino</caption>
-                <thead><tr><th>Zona</th><th>Tiempo</th><th>Costo</th></tr></thead>
-                <tbody>
-                    <tr><td>Lima</td><td>24 horas</td><td>Gratis</td></tr>
-                    <tr><td>Resto del Perú</td><td>3 a 5 días</td><td>S/ 18.00</td></tr>
-                    <tr><td>Internacional</td><td>7 a 15 días</td><td>S/ 110.00</td></tr>
-                </tbody>
-            </table>
-        </aside>
-
         <section id="compra">
             <h2>Finalizar compra</h2>
             <form action="index.html" method="get">
-                <fieldset>
+                <fieldset class="envio">
                     <legend>Datos de envío</legend>
-                    <p><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" required></p>
-                    <p><label for="correo">Correo electrónico</label><input type="email" id="correo" name="correo" required></p>
-                    <p><label for="direccion">Dirección</label><input type="text" id="direccion" name="direccion" required></p>
-                    <div class="fila">
-                        <p><label for="ciudad">Ciudad</label><input type="text" id="ciudad" name="ciudad" required></p>
-                        <p><label for="pais">País</label><select id="pais" name="pais" required><option value="">Elige</option><option>Perú</option><option>Chile</option><option>Colombia</option></select></p>
-                    </div>
-                    <div class="fila">
-                        <p><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" pattern="[0-9]{7,}"></p>
-                        <p><label for="fecha">Fecha de entrega</label><input type="date" id="fecha" name="fecha"></p>
-                    </div>
-                    <p><label for="notas">Notas</label><textarea id="notas" name="notas" rows="4"></textarea></p>
+                    <p class="campo-ancho"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" required></p>
+                    <p class="campo-ancho"><label for="direccion">Dirección</label><input type="text" id="direccion" name="direccion" required></p>
+                    <p><label for="ciudad">Ciudad</label><input type="text" id="ciudad" name="ciudad" required></p>
+                    <p><label for="pais">País</label><select id="pais" name="pais" required><option value="">Elige</option><option>Perú</option><option>Chile</option><option>Colombia</option></select></p>
+                    <p><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" pattern="[0-9]{7,}"></p>
+                    <p><label for="fecha">Fecha de entrega</label><input type="date" id="fecha" name="fecha"></p>
+                    <p class="campo-ancho"><label for="notas">Notas</label><textarea id="notas" name="notas" rows="4"></textarea></p>
                 </fieldset>
-                <fieldset>
+                <fieldset class="pago">
                     <legend>Método de pago</legend>
                     <p><input type="radio" id="tarjeta" name="pago" value="tarjeta" required><label for="tarjeta">Tarjeta</label></p>
                     <p><input type="radio" id="transferencia" name="pago" value="transferencia"><label for="transferencia">Transferencia</label></p>
+                    <p><input type="radio" id="contraentrega" name="pago" value="contraentrega"><label for="contraentrega">Contra entrega</label></p>
                 </fieldset>
-                <p><input type="checkbox" id="terminos" name="terminos" required><label for="terminos">Acepto los términos y condiciones</label></p>
+                <p class="terminos"><input type="checkbox" id="terminos" name="terminos" required><label for="terminos">Acepto los términos y condiciones</label></p>
                 <button type="submit">Confirmar pedido</button>
             </form>
         </section>
@@ -130,10 +113,24 @@
         </section>
     </main>
 
+    <aside>
+        <h2>Información de compra</h2>
+        <p>Compra segura, garantía y despacho nacional.</p>
+        <table class="tabla-envio">
+            <caption>Tarifas según destino</caption>
+            <thead><tr><th>Zona</th><th>Tiempo</th><th>Costo</th></tr></thead>
+            <tbody>
+                <tr><td>Lima</td><td>24 h</td><td>Gratis</td></tr>
+                <tr><td>Perú</td><td>3 a 5 días</td><td>S/ 18</td></tr>
+                <tr><td>Internacional</td><td>7 a 15 días</td><td>S/ 110</td></tr>
+            </tbody>
+        </table>
+    </aside>
+
     <footer>
-        <div class="footer-col"><strong>TechCart</strong><p>Tecnología para estudiar y trabajar.</p></div>
-        <div class="footer-col"><strong>Enlaces</strong><a href="#catalogo">Catálogo</a><a href="#compra">Comprar</a><a href="nosotros.html">Nosotros</a></div>
-        <div class="footer-col"><strong>Contacto</strong><address><a href="mailto:hola@techcart.pe">hola@techcart.pe</a></address><p>Arequipa, Perú</p></div>
+        <div><strong>TechCart</strong><p>Tecnología para estudiar y trabajar.</p></div>
+        <div><strong>Enlaces</strong><a href="#catalogo">Catálogo</a><a href="#compra">Comprar</a><a href="nosotros.html">Nosotros</a></div>
+        <div><strong>Contacto</strong><address><a href="mailto:hola@techcart.pe">hola@techcart.pe</a></address><p>Arequipa, Perú</p></div>
     </footer>
 </body>
 </html>
