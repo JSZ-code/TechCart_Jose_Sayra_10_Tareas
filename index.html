@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="José Sayra Zeballos">
-    <meta name="description" content="TechCart, práctica completa de CSS Grid.">
-    <title>TechCart - Clase 4</title>
+    <meta name="description" content="TechCart responsive, mobile first, modo oscuro y animaciones.">
+    <title>TechCart - Clase 5</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -14,8 +14,8 @@
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
                 <li><a href="#compra">Comprar</a></li>
-                <li><a href="#preguntas">Preguntas</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
             </ul>
         </nav>
@@ -82,6 +82,16 @@
             </div>
         </section>
 
+        <section id="beneficios">
+            <h2>Beneficios TechCart</h2>
+            <div class="beneficios">
+                <article><span aria-hidden="true">🚚</span><h3>Envío gratis</h3><p>En compras desde S/ 150 a todo el país.</p></article>
+                <article><span aria-hidden="true">🛡️</span><h3>Garantía real</h3><p>12 meses en todos los productos.</p></article>
+                <article><span aria-hidden="true">🔒</span><h3>Pago seguro</h3><p>Tarjeta, transferencia o contra entrega.</p></article>
+                <article><span aria-hidden="true">💬</span><h3>Soporte directo</h3><p>Acompañamiento antes y después de la compra.</p></article>
+            </div>
+        </section>
+
         <section id="compra">
             <h2>Finalizar compra</h2>
             <form action="index.html" method="get">
@@ -104,12 +114,6 @@
                 <p class="terminos"><input type="checkbox" id="terminos" name="terminos" required><label for="terminos">Acepto los términos y condiciones</label></p>
                 <button type="submit">Confirmar pedido</button>
             </form>
-        </section>
-
-        <section id="preguntas">
-            <h2>Preguntas frecuentes</h2>
-            <details><summary>¿Cuánto demora el envío?</summary><p>Entre 24 horas y 5 días según destino.</p></details>
-            <details><summary>¿Los productos tienen garantía?</summary><p>Sí, todos incluyen garantía.</p></details>
         </section>
     </main>
 
